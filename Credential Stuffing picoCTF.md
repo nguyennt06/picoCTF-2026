@@ -1,4 +1,5 @@
-![image](https://hackmd.io/_uploads/HJZcFHLsWl.png)
+<img width="926" height="457" alt="image" src="https://github.com/user-attachments/assets/f0ffe837-9d71-47d4-b278-638b3949fd58" />
+
 
 \- At first, download the credentials dump by clicking [here](https://challenge-files.picoctf.net/c_crystal_peak/d95212c879165808903da2be8aa8f9f8ad7577549d0101f90d9280762a08e713/creds-dump.txt)
 
