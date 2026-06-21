@@ -1,6 +1,0 @@
-{
-  // Khi paste ảnh vào file .md nào, ảnh sẽ lưu vào thư mục images/ ở gốc repo
-  "markdown.copyFiles.destination": {
-    "**/*.md": "/images/"
-  }
-}
